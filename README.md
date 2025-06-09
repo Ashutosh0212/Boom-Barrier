@@ -14,31 +14,6 @@ A modern, responsive web dashboard for managing and monitoring boom barriers. Th
 - 🔐 **Secure Authentication**: Protected access with email and password, leading to the dashboard for most navigation options.
 - ⚙️ **System Settings**: Configure various system options, including general, notifications, security, API, and backup settings.
 
-## Screenshots
-
-### Landing Page
-![Landing Page](screenshots/landing.png)
-
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
-
-### Login
-![Login](screenshots/login.png)
-
-### Barriers Management
-![Barriers Management](screenshots/barriers.png)
-
-### User Management
-![User Management](screenshots/users.png)
-
-### System Logs
-![System Logs](screenshots/logs.png)
-
-### Settings
-![Settings](screenshots/settings.png)
-
-## Getting Started
-
 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/boom-barrier-dashboard.git
@@ -141,18 +116,3 @@ The dashboard uses CSS variables for easy theme customization. Edit the `:root` 
 3. Commit your changes: `git commit -m 'Add some AmazingFeature'`
 4. Push to the branch: `git push origin feature/AmazingFeature`
 5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For support, email support@example.com or open an issue in the repository.
-
-## Acknowledgments
-
-- Bootstrap for the responsive framework.
-- Font Awesome for the icons (including the new leaf logo).
-- Chart.js for interactive data visualization.
-- The open-source community for inspiration and resources 
