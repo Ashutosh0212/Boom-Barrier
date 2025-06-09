@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Boom Barrier Control System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --primary-light: #a29bfe;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header img {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .login-header h1 {
+            font-size: 1.5rem;
+            color: #2d3436;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: #636e72;
+            margin-bottom: 0;
+        }
+
+        .form-floating {
+            margin-bottom: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(108, 92, 231, 0.25);
+        }
+
+        .btn-login {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem;
+            font-weight: 500;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #636e72;
+        }
+
+        .login-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #636e72;
+        }
+
+        .alert {
+            display: none;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <i class="fas fa-leaf logo-icon mb-3 fa-4x" style="color: var(--primary-color);"></i>
+            <h1>Welcome Back</h1>
+            <p>Sign in to manage your Boom Barriers</p>
+        </div>
+
+        <div class="alert alert-danger" id="loginAlert" role="alert">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Invalid email or password. Please try again.</span>
+        </div>
+
+        <form id="loginForm" onsubmit="return handleLogin(event)">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required>
+                <label for="emailInput">Email address</label>
+            </div>
+            <div class="form-floating position-relative">
+                <input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+                <label for="passwordInput">Password</label>
+                <i class="fas fa-eye password-toggle" id="passwordToggle"></i>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">
+                    Remember me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-login">
+                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                Sign In
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <p>Forgot your password? <a href="#">Reset it here</a></p>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle password visibility
+        const passwordToggle = document.getElementById('passwordToggle');
+        const passwordInput = document.getElementById('passwordInput');
+
+        passwordToggle.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Handle login form submission
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            const loginAlert = document.getElementById('loginAlert');
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            const spinner = submitButton.querySelector('.spinner-border');
+
+            // Show loading state
+            submitButton.disabled = true;
+            spinner.classList.remove('d-none');
+
+            // Simulate API call
+            setTimeout(() => {
+                // For demo purposes, we'll just check if the email contains "admin"
+                if (email.includes('admin')) {
+                    window.location.href = 'dashboard.html';
+                } else {
+                    loginAlert.style.display = 'block';
+                    submitButton.disabled = false;
+                    spinner.classList.add('d-none');
+                }
+            }, 1000);
+
+            return false;
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Boom Barrier Control System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-leaf logo-icon me-2"></i> EcoTech
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="barriers.html" class="nav-link">
+                        <i class="fas fa-door-open"></i>
+                        <span>Barriers</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="logs.html" class="nav-link">
+                        <i class="fas fa-history"></i>
+                        <span>Logs</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="users.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <nav class="navbar navbar-expand navbar-light bg-white">
+                <div class="container-fluid">
+                    <button id="sidebarToggle" class="btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="ms-auto d-flex align-items-center">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Admin User</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Dashboard Content -->
+            <div class="container-fluid dashboard-content">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h1>Dashboard Overview</h1>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-door-open"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>12</h3>
+                                <p>Active Barriers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>1,234</h3>
+                                <p>Today's Traffic</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>2</h3>
+                                <p>Alerts</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>98%</h3>
+                                <p>Uptime</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barrier Status -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Barrier Status</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Barrier ID</th>
+                                                <th>Location</th>
+                                                <th>Status</th>
+                                                <th>Last Activity</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>BB-001</td>
+                                                <td>Main Entrance</td>
+                                                <td><span class="badge bg-success">Open</span></td>
+                                                <td>2 mins ago</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="fas fa-power-off"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>BB-002</td>
+                                                <td>Exit Gate</td>
+                                                <td><span class="badge bg-danger">Closed</span></td>
+                                                <td>5 mins ago</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                                                    <button class="btn btn-sm btn-success"><i class="fas fa-power-off"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Recent Activity</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="activity-feed">
+                                    <div class="activity-item">
+                                        <span class="activity-time">2 mins ago</span>
+                                        <i class="fas fa-door-open activity-icon"></i>
+                                        <span class="activity-text">Barrier BB-001 opened automatically</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <span class="activity-time">5 mins ago</span>
+                                        <i class="fas fa-door-closed activity-icon"></i>
+                                        <span class="activity-text">Barrier BB-002 closed manually</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <span class="activity-time">10 mins ago</span>
+                                        <i class="fas fa-exclamation-circle activity-icon"></i>
+                                        <span class="activity-text">System alert: BB-003 maintenance required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Traffic Analytics</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <canvas id="trafficChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Toggle sidebar
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.querySelector('.dashboard-container').classList.toggle('sidebar-collapsed');
+        });
+
+        // Traffic Analytics Chart
+        const trafficChartCtx = document.getElementById('trafficChart').getContext('2d');
+        new Chart(trafficChartCtx, {
+            type: 'line',
+            data: {
+                labels: ['8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM'],
+                datasets: [{
+                    label: 'Vehicles In',
+                    data: [65, 59, 80, 81, 56, 55, 40, 70],
+                    borderColor: '#6c5ce7',
+                    backgroundColor: 'rgba(108, 92, 231, 0.2)',
+                    tension: 0.3,
+                    fill: true
+                }, {
+                    label: 'Vehicles Out',
+                    data: [28, 48, 40, 19, 86, 27, 90, 60],
+                    borderColor: '#a29bfe',
+                    backgroundColor: 'rgba(162, 155, 254, 0.2)',
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: false,
+                        text: 'Traffic Analytics'
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#f0f0f0'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
